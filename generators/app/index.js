@@ -26,6 +26,7 @@ module.exports = yeoman.generators.Base.extend({
         //Copy the configuration files
         config: function () {
             mkdirp.sync('assets/src/sass');
+            mkdirp.sync('assets/src/css');
             mkdirp.sync('assets/src/images');
             mkdirp.sync('assets/src/fonts');
             mkdirp.sync('assets/src/js/theme');

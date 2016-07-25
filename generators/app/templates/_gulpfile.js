@@ -50,7 +50,7 @@ var paths = {
         css: assetSrc + "css/**/*.css",
         libCss: [
             bowerPath + "bootstrap/dist/css/bootstrap.min.css",
-            bowerPath + "font-awesome/css/font-awesome.min.css",
+            bowerPath + "font-awesome/css/font-awesome.css",
             bowerPath + "textAngular/dist/textAngular.css"
         ],
         images: [
@@ -60,7 +60,8 @@ var paths = {
             assetSrc + 'images/**/*.svg'
         ],
         fonts: [
-			assetSrc + 'fonts/**/*.*'
+			assetSrc + 'fonts/**/*.*',
+            bowerPath + 'font-awesome/fonts/**/*.*'
         ],
     },
     dest: {
@@ -173,11 +174,11 @@ gulp.task("fonts", function (cb) {
 
 gulp.task("clean", function () {
     return del([
-        paths.dest.js,
+        assets + "js/**/*",
+        assetSrc + "css/**/*",
         paths.dest.css,
         paths.dest.libCss,
         paths.dest.libJs,
-        paths.dest.js,
         paths.dest.images,
         paths.dest.fonts
     ]);
@@ -188,7 +189,7 @@ gulp.task('watch', function () {
     console.log("Watching for changes...");
 
     watch(paths.src.sass + '/**/*.scss', function () {
-        gulp.start("sass");
+        runSequence(["sass", "css"]);
     });
     watch(paths.src.libCss, function () {
         gulp.start("libCss");
@@ -215,15 +216,6 @@ gulp.task('watch', function () {
         gulp.start("appTemplates");
     });
 
-    //gulp.watch(paths.src.sass + '/**/*.scss', ['sass']);
-    //gulp.watch(paths.src.libCss, ['libCss'])
-    //gulp.watch(paths.src.css, ['css']);
-    //gulp.watch(paths.src.libjs, ['libjs']);
-    //gulp.watch(paths.src.js, ['js']);
-    //gulp.watch(paths.src.appJs, ['appJs']);
-    //gulp.watch(paths.src.images, ['images']);
-    //gulp.watch(paths.src.fonts, ['fonts']);
-    //gulp.watch(paths.src.appTemplates, ['appTemplates']);
 });
 
 
@@ -231,7 +223,7 @@ gulp.task('watch', function () {
 
 var build = ["images", "fonts", "sass", "libCss", "css", "libJs", "js", "angLibJs", "appJs", "appTemplates"];
 gulp.task("default", function () {
-    //env = "development";
+    env = "development";
     runSequence(build);
     //runSequence("watch");
     gulp.start("watch");
