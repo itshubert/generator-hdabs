@@ -47,10 +47,10 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         //Copy application files
-        app: function () {
-            ///// Angular app
-            this.fs.copy(this.templatePath('_assets/_src/_js/_app/_app.js'), this.destinationPath('assets/src/js/app/app.js'));
-        }
+        //app: function () {
+        //    ///// Angular app
+        //    this.fs.copy(this.templatePath('_assets/_src/_js/_app/_app.js'), this.destinationPath('assets/src/js/app/app.js'));
+        //}
     },
     install: function () {
         this.installDependencies();

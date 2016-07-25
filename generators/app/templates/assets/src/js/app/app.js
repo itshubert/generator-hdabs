@@ -1,4 +1,4 @@
-﻿(function (angular, window) {
+(function (angular, window) {
 	'use-strict';
     angular.module('filters', []);
     angular.module('services', ['ngResource']);
@@ -7,17 +7,18 @@
         'ngRoute',
         'ngSanitize',
         'ngMessages',
+        'ngAria',
         'appTemplates',
         'services',
         'directives',
         'filters',
         'textAngular'
-    ]).config(function ($provide) {
+    ]).config(['$provide', function ($provide) {
         //$provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions) {
         //    taOptions.forceTextAngularSanitize = true;
         //    return taOptions;
         //}]);
-    });
+    }]);
 
 
 })(angular, window);

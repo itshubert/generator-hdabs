@@ -14,6 +14,7 @@ var gulp = require("gulp"),
     ngHtml2Js = require('gulp-ng-html2js'),
     sass = require('gulp-sass'),
     compass = require('gulp-compass'),
+    watch = require('gulp-watch'),
     autoprefix = require('gulp-autoprefixer');
 
 var webroot = "./";
@@ -37,9 +38,8 @@ var paths = {
             bowerPath + "angular-resource/angular-resource.js",
             bowerPath + "angular-ui-router/release/angular-ui-router.js",
             bowerPath + "angular-animate/angular-animate.js",
-            bowerPath + "angular-aria/angular-aria.js",
             bowerPath + "angular-messages/angular-messages.js",
-            bowerPath + "angular-material/angular-material.js",
+            bowerPath + "angular-aria/angular-aria.js",
             bowerPath + "textAngular/dist/textAngular-rangy.min.js",
             bowerPath + "textAngular/dist/textAngularSetup.js",
             bowerPath + "textAngular/dist/textAngular.min.js"
@@ -186,24 +186,54 @@ gulp.task("clean", function () {
 
 gulp.task('watch', function () {
     console.log("Watching for changes...");
-    gulp.watch(paths.src.sass + '/**/*.scss', ['sass']);
-    gulp.watch(paths.src.libCss, ['libCss'])
-    gulp.watch(paths.src.css, ['css']);
-    gulp.watch(paths.src.libjs, ['libjs']);
-    gulp.watch(paths.src.js, ['js']);
-    gulp.watch(paths.src.appJs, ['appJs']);
-    gulp.watch(paths.src.images, ['images']);
-    gulp.watch(paths.src.fonts, ['fonts']);
-    gulp.watch(paths.src.appTemplates, ['appTemplates']);
+
+    watch(paths.src.sass + '/**/*.scss', function () {
+        gulp.start("sass");
+    });
+    watch(paths.src.libCss, function () {
+        gulp.start("libCss");
+    });
+    watch(paths.src.css, function () {
+        gulp.start("css");
+    });
+    watch(paths.src.libJs, function () {
+        gulp.start("libJs");
+    });
+    watch(paths.src.js, function () {
+        gulp.start("js");
+    });
+    watch(paths.src.appJs, function () {
+        gulp.start("appJs");
+    });
+    watch(paths.src.images, function () {
+        gulp.start("images");
+    });
+    watch(paths.src.fonts, function () {
+        gulp.start("fonts");
+    });
+    watch(paths.src.appTemplates, function () {
+        gulp.start("appTemplates");
+    });
+
+    //gulp.watch(paths.src.sass + '/**/*.scss', ['sass']);
+    //gulp.watch(paths.src.libCss, ['libCss'])
+    //gulp.watch(paths.src.css, ['css']);
+    //gulp.watch(paths.src.libjs, ['libjs']);
+    //gulp.watch(paths.src.js, ['js']);
+    //gulp.watch(paths.src.appJs, ['appJs']);
+    //gulp.watch(paths.src.images, ['images']);
+    //gulp.watch(paths.src.fonts, ['fonts']);
+    //gulp.watch(paths.src.appTemplates, ['appTemplates']);
 });
+
 
 //var build = ["fonts", "sass", "libCss", "css", "libJs", "js", "angLibJs", "appJs", "appTemplates"];
 
 var build = ["images", "fonts", "sass", "libCss", "css", "libJs", "js", "angLibJs", "appJs", "appTemplates"];
 gulp.task("default", function () {
-    env = "development";
+    //env = "development";
     runSequence(build);
-    runSequence("watch");
-
+    //runSequence("watch");
+    gulp.start("watch");
 });
 
