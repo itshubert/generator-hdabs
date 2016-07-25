@@ -1,0 +1,78 @@
+﻿.file-drop-zone {
+    height: 50px;
+    background-color: #f5f5f5;
+    border: 1px dashed #808080;
+    color: #303030;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.drop-zone-hover {
+    background-color: #7fad81;
+    border-color: #18641b;
+}
+
+.boat-image-container {
+
+    position: relative;
+
+    img.thumbnail {
+        margin-bottom: 0;
+
+        &[ng-click]:hover {
+            cursor: pointer;
+            opacity: 0.5;
+        }
+    }
+
+    p {
+        margin-top: 0;
+    }
+
+    >a {
+        display: none;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-40%, -80%);
+        border-radius: 50%;
+        color: #fff;
+        background-color: darken(#dd4b39, 20%);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        box-shadow: 0 2px 4.7px .3px rgba(0,0,0,.24);
+        z-index: 2;
+
+        &:hover {
+            background-color: #dd4b39;
+        }
+    }
+
+    &:hover a {
+        display: inline-block;
+    }
+
+    /*>a:hover {
+        color: #f39c12;
+        box-shadow: 0 2px 4.7px .3px rgba(0,0,0,.24);
+    }*/
+
+}
+
+
+/*.ngdialog .box {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}*/

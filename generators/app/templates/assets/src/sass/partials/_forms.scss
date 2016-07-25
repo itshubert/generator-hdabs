@@ -1,0 +1,51 @@
+﻿.checkbox-col {
+    padding-top: 20px;
+}
+
+.field-error {
+    padding-left: 2px;
+    color: $red;
+    font-size: $fontSize;
+}
+
+.form-group label > span {
+    color: $red;
+}
+
+ul.boat-categories {
+    padding-left: 0;
+}
+
+ul.boat-categories li.label {
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: .3em .6em;
+    letter-spacing: .08em;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.label-primary:hover {
+        background-color: darken(#3c8dbc, 20%) !important;
+    }
+
+    &.label-warning:hover {
+        background-color: darken(#f39c12, 20%) !important;
+    }
+}
+
+
+
+/* */
+/* textAngular */
+.ta-scroll-window.form-control {
+    min-height: 100px;
+}
+
+.ta-scroll-window > .ta-bind {
+    min-height: 100px;
+    max-height: 400px;
+}

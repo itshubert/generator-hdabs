@@ -1,0 +1,14 @@
+﻿.ngdialog .ngdialog-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .box {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+}
+
+.modal-image-viewer .box-body img {
+    width: 100%;
+}
